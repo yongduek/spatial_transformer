@@ -14,7 +14,7 @@ import utils
 
 
 parser = argparse.ArgumentParser(description='Train a model')
-parser.add_argument('--output_dir', help='Directory containing params.json and weights')
+parser.add_argument('--output_dir', default='experiments/base_stn_model', help='Directory containing params.json and weights')
 parser.add_argument('--restore_file', help='Name of the file containing weights to load')
 parser.add_argument('--cuda', type=int, help='Which cuda device to use')
 
@@ -71,9 +71,10 @@ def train_and_evaluate(model, train_dataloader, val_dataloader, loss_fn, optimiz
         print('Resuming training from epoch {}'.format(start_epoch))
 
     for epoch in range(start_epoch, params.n_epochs):
-        scheduler.step()
 
         loss_history = train_epoch(model, train_dataloader, loss_fn, optimizer, writer, params, epoch)
+
+        scheduler.step() # after PyTorch 1.1.0, do optimizer.step() before lr_scheduler.step()
 
         # snapshot at end of epoch
         is_best = sum(loss_history[:1000])/1000 < best_loss
