@@ -14,9 +14,9 @@ import utils
 
 
 parser = argparse.ArgumentParser(description='Train a model')
-parser.add_argument('--output_dir', help='Directory containing params.json and weights')
-parser.add_argument('--restore_file', help='Name of the file containing weights to load')
-parser.add_argument('--cuda', type=int, help='Which cuda device to use')
+parser.add_argument('--output_dir', default='output', help='Directory containing params.json and weights')
+#parser.add_argument('--restore_file', help='Name of the file containing weights to load')
+parser.add_argument('--cuda', type=int, default=0, help='Which cuda device to use')
 
 
 def train_epoch(model, dataloader, loss_fn, optimizer, writer, params, epoch):
@@ -113,6 +113,7 @@ if __name__ == '__main__':
     writer = utils.set_writer(params.output_dir if args.restore_file is None else os.path.dirname(args.restore_file))
 
     params.device = torch.device('cuda:{}'.format(args.cuda) if torch.cuda.is_available() and args.cuda else 'cpu')
+    print('device: ', params.device)
 
     # set random seed
     torch.manual_seed(11052018)

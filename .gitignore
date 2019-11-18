@@ -5,3 +5,5 @@ data
 
 # virtual env
 .env
+.vscode/settings.json
+output/params.json
