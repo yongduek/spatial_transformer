@@ -181,7 +181,7 @@ def test_get_random_perspective_transform():
     # get transform
     params = Mock()
     params.batch_size = 1
-    params.dict = {'identity_transform_only': False}
+    params.dict = {'identity_transform_only': True}
     params.device = torch.device('cpu')
     H = gen_random_perspective_transform(params)
 

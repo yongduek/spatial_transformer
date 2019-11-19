@@ -8,7 +8,7 @@ def fetch_dataloader(params, train=True, mini_size=128):
 
     # load dataset and init in the dataloader
     transforms = T.Compose([T.ToTensor()])
-    dataset = MNIST(root=params.data_dir, train=train, download=False, transform=transforms)
+    dataset = MNIST(root=params.data_dir, train=train, download=True, transform=transforms)
 
     if params.dict.get('mini_data'):
         if train:
