@@ -31,3 +31,5 @@ experiments/base_stn_model/state_checkpoint.pt
 experiments/base_stn_model/test_image_mean.png
 experiments/base_stn_model/test_image_var.png
 mytest.py
+experiments/base_stn_model/events.out.tfevents.1574137033.TITAN
+experiments/base_stn_model/events.out.tfevents.1574137183.TITAN
