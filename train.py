@@ -14,9 +14,9 @@ import utils
 
 
 parser = argparse.ArgumentParser(description='Train a model')
-parser.add_argument('--output_dir', default='experiments/base_stn_model/params.json', help='Directory containing params.json and weights')
-#parser.add_argument('--restore_file', help='Name of the file containing weights to load')
-parser.add_argument('--cuda', type=int, default=0, help='Which cuda device to use')
+parser.add_argument('--output_dir', default='experiments/base_stn_model', help='Directory containing params.json and weights')
+parser.add_argument('--restore_file', help='Name of the file containing weights to load')
+parser.add_argument('--cuda', type=int, default=1, help='Which cuda device to use')
 
 
 def train_epoch(model, dataloader, loss_fn, optimizer, writer, params, epoch):
