@@ -30,3 +30,4 @@ experiments/base_stn_model/samples__orig_perturbed_transformed_step_9.png
 experiments/base_stn_model/state_checkpoint.pt
 experiments/base_stn_model/test_image_mean.png
 experiments/base_stn_model/test_image_var.png
+mytest.py
